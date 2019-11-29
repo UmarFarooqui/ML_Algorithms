@@ -109,25 +109,29 @@ Let's discuss the different parameters that we can control when creating a decis
 
 class_weight &nbsp;&nbsp;&nbsp;Weights associated with the class labels, A value of None means equal weightage.
 
-criterion    Method to measure homogeneity such as gini impurity or information gain.
+criterion &nbsp;&nbsp;&nbsp;Method to measure homogeneity such as gini impurity or information gain.
 
-max_depth    Maximum distance from root node.
+max_depth &nbsp;&nbsp;&nbsp;Maximum distance from root node.
 
-max_features    Maximum number of features to be used. The features will be picked in the order of descending importance.
+max_features &nbsp;&nbsp;&nbsp;Maximum number of features to be used. The features will be picked in the order of descending importance.
 
-max_leaf_nodes    Maximum leaf nodes in the tree.
+max_leaf_nodes &nbsp;&nbsp;&nbsp;Maximum leaf nodes in the tree.
 
-min_impurity_split    Minimum percentage impurity needed in the subset to split further.
+min_impurity_split &nbsp;&nbsp;&nbsp;Minimum percentage impurity needed in the subset to split further.
 
-min_samples_leaf    Minimum samples that should be present at a leaf node
+min_samples_leaf &nbsp;&nbsp;&nbsp;Minimum samples that should be present at a leaf node
 
-min_samples_split    Minimum samples in a subset to allow further splitting
+min_samples_split &nbsp;&nbsp;&nbsp;Minimum samples in a subset to allow further splitting
 
-min_weight_fraction_leaf    Minimum fraction of samples that should be at a leaf node
+min_weight_fraction_leaf &nbsp;&nbsp;&nbsp;Minimum fraction of samples that should be at a leaf node
 
 Some of the parameters are related to performace of the model. These parameters are:
 
-presort, random_state, splitter
+presort, 
+
+random_state, 
+
+splitter
 
 ### Measuring the accuracy of the decision tree
 ```python
