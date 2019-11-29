@@ -107,7 +107,7 @@ Note that the bottom nodes are pruned, the top nodes are same.
 ### Tree Characteristics
 Let's discuss the different parameters that we can control when creating a decision tree classifier.
 
-class_weight    Weights associated with the class labels, A value of None means equal weightage.
+class_weight &nbsp;&nbsp;&nbsp;Weights associated with the class labels, A value of None means equal weightage.
 
 criterion    Method to measure homogeneity such as gini impurity or information gain.
 
