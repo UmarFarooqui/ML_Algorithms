@@ -3,13 +3,15 @@ ML algorithms which build decision trees from training data.
 
 Tree based algorithms can be of two types:
 1. Decision tree learning algorithms
+
 They build a single decision tree.
 
 2. Ensemble learning algorithms
+
 They build multiple decision trees and combine their results.
 
 ### How decision tree learning works:
-It works by Choosing a feature which divides the training data into homogeneous subsets and applies this criterion recursively.
+It works by choosing a feature which divides the training data into homogeneous subsets and applies this criterion recursively.
 
 ### Ways to measure homogeneity of the subsets
 1. Information Gain
@@ -17,8 +19,11 @@ It works by Choosing a feature which divides the training data into homogeneous 
 
 ### Ranking important features
 1. Summarize label by different features.
+
 Say we have following features: feature1, feature2, feature3
+
 and the label: label
+
 The dataframe is data
 Then,
 ```python
