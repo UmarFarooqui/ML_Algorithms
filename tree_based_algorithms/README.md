@@ -177,13 +177,80 @@ In ensemble learning, we build models using different
 3. Features &nbsp;&nbsp;&nbsp;Each tree built using a different subset of features.
 4. Hyperparameters &nbsp;&nbsp;&nbsp;Each tree built using a different values of hyperparameters such as max_tree_depth e.g. 10 vs 20
 
-Then, we combine these models using the following techniques:
+Then, we combine these models using one of the following techniques:
 1. Random Forests
 2. Gradient Boosted Trees
 
 ### Random Forests.
+This technique builds an ensemble of decision trees and gives each decision tree an equal vote.
+
+Models are built using different:
+1. Training Sets &nbsp;i.e. each tree is built from a different subset of training data
+2. Features &nbsp;i.e. each tree is built using a different subset of features
+
+The training sets for each decision tree is selected using a technique called Bagging, 
+while the subset of features is selected using a technique called random subspace.
+
+#### Bagging
+Bagging (short for Bootstrap Aggregating) uses a statistical technique, to select samples from a dataset, called Bootstrap sampling. In Bootstrap sampling process:
+
+Every data point has an equal probability of being picked,
+
+A data point can be pickedfor a training set more than once.
+
+Whenever we build multiple subsets using the technique of bootstrap sampling and then use these muliple subsets to build an ensemble of models,
+we are said to use the technique of bagging.
+
+#### Random subspace
+In random subspace, we pick random subsets from the entire set of features to build an ensemble of models.
+
+The following code shows how to create a random forest classifier and then use it
+```python
+from sklearn.ensemble import RandomForestClassifier
+clf = RandomForestClassifier()
+clf = clf.fit(train[["feature1", "feature2", "feature3", "feature4", "feature5"]], train["label"])
+predictions = clf.predict(test[["feature1", "feature2", "feature3", "feature4", "feature5"]])
+accuracy_score(test["label"], predictions)
+```
+
+If we want to control the hyperparameters, it is better to define a function and pass it the classifier:
+```python
+def checkAccuracy(clf):
+    clf = clf.fit(train[["feature1", "feature2", "feature3", "feature4", "feature5"]], train["label"])
+    predictions = clf.predict(test[["feature1", "feature2", "feature3", "feature4", "feature5"]])
+    return accuracy_score(test["label"], predictions)
+
+checkAccuracy(RandomForestClassifier(n_estimators=20))
+```
+
+The parameter that we have used above is the n_estimators which specifies the number of trees in the ensemble.
+In our code, 20 decision trees will be built and all will be given equal votes.
+
+As mentioned previously, we can lower the chances of overfitting by testing using multiple test datasets.
 
 ### Gradient Boosted Trees.
+In gradient boosted trees, the models are built using different:
+Training sets &nbsp;i.e. each tree is built from a different subset of training data
+
+The training subsets are chosen using a combination of two techniques:
+1. Boosting &nbsp;&nbsp;&nbsp;Each tree is build sequentially from a different subset of the training set.
+2. Gradient Descent &nbsp;&nbsp;&nbsp;Adjusting probability of the presence of a data point in the next training set.
+
+The following code shows how to create a XGBoost classifier which is a gradient boosted tree and then use it.
+```python
+from xgboost.sklearn import XGBClassifier
+clf = XGBClassifier()
+checkAccuracy(clf)
+```
+The parameters in XGBoost classifier are:
+
+n_estimators &nbsp;&nbsp;&nbsp;A good rule of thumb is to increase this value if we have a large training set.
+learning_rate &nbsp;&nbsp;&nbsp;This is a factor to reduce overfitting. Typical values 0.01 - 0.2
+subsample &nbsp;&nbsp;&nbsp;The fraction of the training set to be used for each tree. Too small values lead to underfitting. Typical values 0.5 - 1
+colsample_bytree &nbsp;&nbsp;&nbsp;The fraction of the features to be used for each tree. Typical values 0.5 - 1
+gamma &nbsp;&nbsp;&nbsp;Minimum reduction in error to split the tree further.
+
 
 Reference:
+
 https://app.pluralsight.com/library/courses/tree-based-models-classification/table-of-contents
