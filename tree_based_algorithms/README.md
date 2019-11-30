@@ -1,4 +1,4 @@
-## Tree based algorithms:
+## Tree based algorithms
 ML algorithms which build decision trees from training data.
 
 Tree based algorithms can be of two types:
@@ -6,7 +6,7 @@ Tree based algorithms can be of two types:
 
 2. <u>Ensemble learning algorithms.</u>  They build multiple decision trees and combine their results.
 
-### How decision tree learning works:
+### How decision tree learning works
 It works by choosing a feature which divides the training data into homogeneous subsets and applies this criterion recursively.
 
 ### Ways to measure homogeneity of the subsets
@@ -146,7 +146,7 @@ Another thing, we need to keep in mind while tuning the hyperparameters is that 
 
 Overfitting and Underfitting are serious problems that need to be solved when creating any ML model.
 
-### Overfitting and underfitting.
+### Overfitting and underfitting
 In machine learning, a model learns from experience i.e. the training data. In case of overfitting, it picks up patterns from the training data that are not relevant.
 
 It is difficult to avoid overfitting since we can never fully tell which patterns are really relevant and which ones are not. The only way is to test it on as many new samples as possible.
@@ -157,20 +157,19 @@ Underfitting is when we are missing patterns that are relevant to the the univer
 
 One way to avoid overfitting is to avoid extremely complex models especially when we are working with a small dataset.
 
-### Using Ensembles of algorithms to overcome overfitting.
-
+### Using Ensembles of algorithms to overcome overfitting
 In case of decision tree models, we can avoid overfitting by the following mechanisms:
 1. Pruning. &nbsp;&nbsp;&nbsp;Reducing the complexity of a decision tree. 
 2. Ensemble learning. &nbsp;&nbsp;&nbsp;Build multiple decision trees and combine their results.
 
-### Pruning.
+### Pruning
 We start from the bottom of the decision tree and critically evaluate the nodes.
 
 When we remove a node, we need to measure the accuracy of the decision tree on one or more test dataset and if the accuracy remains same or improves, we can prune the node from the tree.
 
 So, we see that for this technique we need enough test data.
 
-### Ensemble learning.
+### Ensemble learning
 In ensemble learning, we build models using different
 1. Techniques &nbsp;&nbsp;&nbsp;Say, gini impurity vs information gain, decision tree vs logistic regression.
 2. Training Sets &nbsp;&nbsp;&nbsp;Each tree built using a different subset of training data.
@@ -181,7 +180,7 @@ Then, we combine these models using one of the following techniques:
 1. Random Forests
 2. Gradient Boosted Trees
 
-### Random Forests.
+### Random Forests
 This technique builds an ensemble of decision trees and gives each decision tree an equal vote.
 
 Models are built using different:
@@ -228,7 +227,7 @@ In our code, 20 decision trees will be built and all will be given equal votes.
 
 As mentioned previously, we can lower the chances of overfitting by testing using multiple test datasets.
 
-### Gradient Boosted Trees.
+### Gradient Boosted Trees
 In gradient boosted trees, the models are built using different:
 Training sets &nbsp;i.e. each tree is built from a different subset of training data
 
@@ -245,9 +244,13 @@ checkAccuracy(clf)
 The parameters in XGBoost classifier are:
 
 n_estimators &nbsp;&nbsp;&nbsp;A good rule of thumb is to increase this value if we have a large training set.
+
 learning_rate &nbsp;&nbsp;&nbsp;This is a factor to reduce overfitting. Typical values 0.01 - 0.2
+
 subsample &nbsp;&nbsp;&nbsp;The fraction of the training set to be used for each tree. Too small values lead to underfitting. Typical values 0.5 - 1
+
 colsample_bytree &nbsp;&nbsp;&nbsp;The fraction of the features to be used for each tree. Typical values 0.5 - 1
+
 gamma &nbsp;&nbsp;&nbsp;Minimum reduction in error to split the tree further.
 
 
