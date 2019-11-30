@@ -146,4 +146,44 @@ Another thing, we need to keep in mind while tuning the hyperparameters is that 
 
 Overfitting and Underfitting are serious problems that need to be solved when creating any ML model.
 
-## Using Ensembles of algorithms to overcome overfitting.
+### Overfitting and underfitting.
+In machine learning, a model learns from experience i.e. the training data. In case of overfitting, it picks up patterns from the training data that are not relevant.
+
+It is difficult to avoid overfitting since we can never fully tell which patterns are really relevant and which ones are not. The only way is to test it on as many new samples as possible.
+
+Overfitting is also difficult to resolve because in order to avoid it, we may go too far in the other direction and introduce the problem of underfitting.
+
+Underfitting is when we are missing patterns that are relevant to the the universe of the data.
+
+One way to avoid overfitting is to avoid extremely complex models especially when we are working with a small dataset.
+
+### Using Ensembles of algorithms to overcome overfitting.
+
+In case of decision tree models, we can avoid overfitting by the following mechanisms:
+1. Pruning. &nbsp;&nbsp;&nbsp;Reducing the complexity of a decision tree. 
+2. Ensemble learning. &nbsp;&nbsp;&nbsp;Build multiple decision trees and combine their results.
+
+### Pruning.
+We start from the bottom of the decision tree and critically evaluate the nodes.
+
+When we remove a node, we need to measure the accuracy of the decision tree on one or more test dataset and if the accuracy remains same or improves, we can prune the node from the tree.
+
+So, we see that for this technique we need enough test data.
+
+### Ensemble learning.
+In ensemble learning, we build models using different
+1. Techniques &nbsp;&nbsp;&nbsp;Say, gini impurity vs information gain, decision tree vs logistic regression.
+2. Training Sets &nbsp;&nbsp;&nbsp;Each tree built using a different subset of training data.
+3. Features &nbsp;&nbsp;&nbsp;Each tree built using a different subset of features.
+4. Hyperparameters &nbsp;&nbsp;&nbsp;Each tree built using a different values of hyperparameters such as max_tree_depth e.g. 10 vs 20
+
+Then, we combine these models using the following techniques:
+1. Random Forests
+2. Gradient Boosted Trees
+
+### Random Forests.
+
+### Gradient Boosted Trees.
+
+Reference:
+https://app.pluralsight.com/library/courses/tree-based-models-classification/table-of-contents
