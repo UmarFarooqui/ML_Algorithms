@@ -88,6 +88,21 @@ Then R-squared helps us answer how much of the increase is explained by the mark
 
 R-squared is one of the most used measures to check the model quality.
 
+#### F-statistic:
+Answers the question that does our regression as a whole 'adds value' at all.
+
+High F-statistic => Yes
+
+### Difference between F-statistic and T-statistics:
+T-statistics tell us whether individual parameter coefficients are 'good' or not.
+The higher the t-statistic of a coefficient, the higher our confidence in our estimate of that coefficient.
+
+High T-statistic => Yes
+
+F-statistic tells us whether an entire regression line is 'good' or not.
+
+High F-statistic => Yes
+
 Reference:
 
 https://app.pluralsight.com/library/courses/understanding-applying-linear-regression/table-of-contents
